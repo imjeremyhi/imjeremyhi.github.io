@@ -14,7 +14,11 @@ $( document ).ready(function() {
         scaleBannerVideoSize('.video-container video');
     });
 
+    
+
 });
+
+
 
 function scaleVideoContainer() {
 
@@ -61,3 +65,5 @@ function scaleBannerVideoSize(element){
 
     });
 }
+
+

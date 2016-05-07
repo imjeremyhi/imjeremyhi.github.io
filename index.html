@@ -21,7 +21,30 @@
 	        </div>
 	    </div>
 	</div>
-	<h1 class="hero-title">Web Developer</h1>
-	<h1 class ="hero-subtitle">Hi I'm Jeremy - programmer, photographer, entrepreneur</h1>
-	<p>guangming liu</p>
+	<h1 class="hero-title">Hi I'm Jeremy</h1>
+	<h1 class ="hero-subtitle">I am a <span id="rotate"></span></h1>
+	<script>
+		var person = ["programmer","photographer","entrepreneur"];
+		var i = 0;
+		var heading = document.querySelector("#rotate");
+
+		function slide() {
+			heading.innerHTML = person[i];
+			heading.style.opacity = 1;
+			setTimeout(next, 2000);
+		}
+
+		function next() {
+			i++;
+
+			if (i > person.length-1) {
+				i=0;
+			}
+			heading.style.opacity = 0;
+
+			setTimeout(slide,1000);
+		}
+
+		slide();
+	</script>
 </html>
