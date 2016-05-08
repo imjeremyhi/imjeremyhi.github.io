@@ -2,13 +2,14 @@
 
 <html>
 	<head>
-		<title>Jeremy's Website</title>
+		<title>Jeremy Fu | Web Developer</title>
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/default.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script src="js/default.js"></script>
-		
+		<base target="_blank">
 	</head>
+	<body>
 	<div class="homepage-hero-module">
 	    <div class="video-container">
 	        <div class="filter"></div>
@@ -19,10 +20,103 @@
 	        <div class="poster hidden">
 	            <img src="PATH_TO_JPEG" alt="cant find it">
 	        </div>
+
+	        
+
+	        <div id="hero-title"></div>
+			<h1 class ="hero-subtitle">I am a <span id="rotate"></span></h1>
+
+	        
 	    </div>
 	</div>
-	<h1 class="hero-title">Hi I'm Jeremy</h1>
-	<h1 class ="hero-subtitle">I am a <span id="rotate"></span></h1>
+
+	<div class="sections" id="about">
+		<h1 class="heading">INFO</h1>
+		<div id="top-margin">
+			<div class="col-xs-4" style="padding-left: 0px;">
+				<p class="bottom-spacing">QUALIFICATIONS</p>
+				<p>B.S Commerce<br/>(Computer Science and Information Systems)</p>
+			</div>
+			<div class="col-xs-4">
+				<p class="bottom-spacing">EXPERIENCE</p>
+				<p><strong>Present</strong></p>
+				<p>Presales intern at SAP</p>
+				&nbsp
+				<p><strong>2015</strong></p>
+				<p>Web designer and analyst at GownTown</p>
+				&nbsp
+				<p><strong>2015</strong></p>
+				<p>Web developer as IT director in several UNSW societies</p>
+			</div>
+			<div class="col-xs-4">
+				<p class="bottom-spacing">KNOWLEDGE & SKILLS</p>
+				<p><strong>Web Development</strong></p>
+				<p>HTML/CSS/Jquery</p>
+				<p>NodeJS & ReactJS</p>
+				<p>Wordpress</p>
+				&nbsp
+				<p><strong>Mobile Development</strong></p>
+				<p>Android Development with Java</p>
+				<p>IOS Development with Swift</p>
+				&nbsp
+				<p><strong>Software Development</strong></p>
+				<p>C & Java</p>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="sections" style="background-color:#eeeeee;">
+		<h1 class="heading" style="margin-top:6%;">PROJECTS</h1>
+		<div id="top-margin">
+			<div class="col-xs-5" style="padding-left:0; padding-right:3%;">
+				<div class="image-container">
+					<a href="http://businessoneconsulting.org/" target="_blank">
+					<img src="resources/businessone.PNG" height="300px" width="500px">
+					<div class="after">BUSINESSONE CONSULTING<br/>UNSW</div>
+					</a>
+				</div>
+
+				<div class="image-container" style="margin-top:40px;">
+					<a href="http://www.gowntown.com.au/cufflinks/" target="_blank">
+					<img src="resources/gowntown.PNG" height="300px" width="500px">
+					<div class="after">GOWNTOWN</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-5">
+				<div class="image-container">
+					<a href="http://unswbsoc.com/" target="_blank">
+					<img src="resources/bsoc.PNG" height="300px" width="500px">
+					<div class="after">BUSINESS SOCIETY<br/>UNSW</div>
+					</a>
+				</div>
+
+				<div class="image-container" style="margin-top:40px;">
+					<a href="http://worldhax.com/" target="_blank">
+					<img src="resources/worldhax.PNG" height="300px" width="500px">
+					<div class="after">WORLDHAX<br/>BLOG</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="social-navbar">
+		<a href="https://au.linkedin.com/in/jeremyfu" target="_blank">
+		<img src="resources/linkedin.png" height="30" width="30">
+		</a>
+	</div>
+	<div id="social-navbar2">
+		<a href="mailto:imjeremyhi@gmail.com" target="_blank">
+		<img src="resources/gmail.png" height="30" width="30">
+		</a>
+	</div>
+	
+	</body>
+
 	<script>
 		var person = ["programmer","photographer","entrepreneur"];
 		var i = 0;
@@ -46,5 +140,25 @@
 		}
 
 		slide();
+
+
+		var str = "Hi I'm Jeremy<span class='blinking-cursor'>|</span>",
+	    i = 0,
+	    isTag,
+	    text;
+
+		(function type() {
+		    text = str.slice(0, ++i);
+		    if (text === str) return;
+		    
+		    document.getElementById('hero-title').innerHTML = text;
+
+		    var char = text.slice(-1);
+		    if( char === '<' ) isTag = true;
+		    if( char === '>' ) isTag = false;
+
+		    if (isTag) return type();
+		    setTimeout(type, 80);
+		}());
 	</script>
 </html>
