@@ -13,7 +13,7 @@
 }
 .video-container {
     position: relative;
-    bottom: 0%;
+    
     left: 0%;
     height: 90%;
     width: 100%;
@@ -34,19 +34,26 @@
 .video-container video {
     position: absolute;
     z-index: 0;
-    bottom: 0;
-    top:0;
 }
 .video-container video.fillWidth {
     width: 100%;
+}
+
+#tiny-text {
+    position: absolute;
+    color: #ffffff;
+    text-align: left;
+    left:4%;
+    bottom:10%;
+    font-size:1em;
 }
 
 #hero-title {
     position: relative;
     color: #ffffff;
     text-align: center;
-    margin-top:15%;
-    font-size:6em;
+    top:30%;
+    font-size:4em;
 }
 
 .blinking-cursor {
@@ -102,24 +109,26 @@
   }
 }
 
-.hero-subtitle {
-    position: relative;
+#hero-subtitle {
+    position: absolute;
     color: #ffffff;
     font-size:2.5em;
     text-align: left; 
-    margin-left: 39%;
+    margin-left: 35%;
+    bottom:45%;
 }
 
 #rotate {
-    opacity: 0;
-    transition: opacity 1s linear;
+    /*opacity: 0;
+    transition: opacity 1s linear;*/
+
 }
 
 #social-navbar {
     
     position:fixed;
-    top:40%;
-    margin-left:95%;
+    bottom:2%;
+    right:2%;
     
 }
 
@@ -182,4 +191,59 @@
     font-size:1.5em;
     font-family: Helvetica;
     color: #c5b395;
+}
+
+.animbox-icon {
+    border-radius: 0px;
+    border: 2px solid #9a8e5e;
+    color: #fff;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.animbox {
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9A8E5E;
+    background: #9A8E5E;
+    cursor: default;
+    padding: 17px 35px;
+    width: 250px;
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: 90;
+}
+
+#godown {
+    position: absolute;
+    bottom:20%;
+    margin-left:48%;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px;
+  background-color: #f5f5f5;
 }

@@ -14,9 +14,70 @@ $( document ).ready(function() {
         scaleBannerVideoSize('.video-container video');
     });
 
+    //setTimeout(rotate,2000);
+    scroll();
+
+    $(function(){
+            $("#tiny-text").typed({
+              strings: ["", " ^3000 <strong>Work In Progress:</strong> Personal Website <br/> ^1000 <strong>Reading:</strong> The War of Art <br/>"],
+              typeSpeed: 20,
+              backDelay: 500,
+            });
+        });
+
+
+    $(function(){
+        $("#rotate").typed({
+          strings: ["I am a:^2000 developer"/*,"^2000 learner", "^2000 developer", "^2000 entrepreneur"*/],
+          typeSpeed: 10,
+          backDelay: 500,
+        });
+    });
+
+    
+
+    
 });
 
+function scroll() {
+    $("#godown").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#about").offset().top
+        }, 1500);
+    });
+        setTimeout(autodown,10000);    
+}
 
+function autodown() {
+    if(!$(window).scrollTop()) {
+        $("#godown").trigger('click');
+    }
+}
+
+function rotate() {
+    var person = ["programmer","photographer","entrepreneur"];
+    var i = 0;
+    var heading = document.querySelector("#rotate");
+
+    function slide() {
+        heading.innerHTML = person[i];
+        heading.style.opacity = 1;
+        setTimeout(next, 4000);
+    }
+
+    function next() {
+        i++;
+
+        if (i > person.length-1) {
+            i=0;
+        }
+        heading.style.opacity = 0;
+
+        setTimeout(slide,2200);
+    }
+
+    slide();
+}
 
 function scaleVideoContainer() {
 

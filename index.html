@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/default.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script src="js/default.js"></script>
+		<script src="js/typed.js"></script>
 		<base target="_blank">
 	</head>
 	<body>
@@ -22,51 +23,45 @@
 	        </div>
 
 	        
-
-	        <div id="hero-title"></div>
-			<h1 class ="hero-subtitle">I am a <span id="rotate"></span></h1>
-
+	        <div id="hero-title">Jeremy Fu</div>
 	        
+			<div id ="hero-subtitle"><span id="rotate"></span></div>
+			<div id="godown"><a href="javascript:;"><img src="resources/downarrow.PNG" height="80" width="80" style="border-radius:50%;"></a></div>
+			<div id="tiny-text"></div>
+		        
 	    </div>
 	</div>
 
-	<div class="sections" id="about">
-		<h1 class="heading">INFO</h1>
+	<div class="container" id="about" style="padding-bottom:3%">
+		<h1 class="heading" style="text-align:center;">Programming Knowledge</h1>
 		<div id="top-margin">
-			<div class="col-xs-4" style="padding-left: 0px;">
-				<p class="bottom-spacing">QUALIFICATIONS</p>
-				<p>B.S Commerce<br/>(Computer Science and Information Systems)</p>
-			</div>
-			<div class="col-xs-4">
-				<p class="bottom-spacing">EXPERIENCE</p>
-				<p><strong>Present</strong></p>
-				<p>Presales intern at SAP</p>
-				&nbsp
-				<p><strong>2015</strong></p>
-				<p>Web designer and analyst at GownTown</p>
-				&nbsp
-				<p><strong>2015</strong></p>
-				<p>Web developer as IT director in several UNSW societies</p>
-			</div>
-			<div class="col-xs-4">
-				<p class="bottom-spacing">KNOWLEDGE & SKILLS</p>
-				<p><strong>Web Development</strong></p>
+			<div class="col-xs-4" style="text-align:center;">
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">WEB</span>
+				</button>
 				<p>HTML/CSS/Jquery</p>
 				<p>NodeJS & ReactJS</p>
 				<p>Wordpress</p>
-				&nbsp
-				<p><strong>Mobile Development</strong></p>
+			</div>
+			<div class="col-xs-4" style="text-align:center">
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">MOBILE</span>
+				</button>
 				<p>Android Development with Java</p>
 				<p>IOS Development with Swift</p>
-				&nbsp
-				<p><strong>Software Development</strong></p>
+			</div>
+			<div class="col-xs-4" style="text-align:center;">
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">SOFTWARE</span>
+				</button>
 				<p>C & Java</p>
-				
 			</div>
 		</div>
 	</div>
 
-	<div class="sections" style="background-color:#eeeeee;">
+
+
+	<div class="row" style="background-color:#eeeeee; padding-left:10%; margin-left:0px; margin-right:0px; padding-bottom:10%">
 		<h1 class="heading" style="margin-top:6%;">PROJECTS</h1>
 		<div id="top-margin">
 			<div class="col-xs-5" style="padding-left:0; padding-right:3%;">
@@ -104,43 +99,32 @@
 	</div>
 
 
-	<div id="social-navbar">
-		<a href="https://au.linkedin.com/in/jeremyfu" target="_blank">
-		<img src="resources/linkedin.png" height="30" width="30">
-		</a>
-	</div>
-	<div id="social-navbar2">
-		<a href="mailto:imjeremyhi@gmail.com" target="_blank">
-		<img src="resources/gmail.png" height="30" width="30">
-		</a>
-	</div>
 	
+	
+
+	<footer class="footer" style="background-color:#2f2f2f;">
+      <div class="container">
+        <p class="text-muted" style="text-align:center;padding-top:5%;color:#ffffff">&copy Jeremy Fu 2016<br/>Experimental Website</p>
+      </div>
+    </footer>
+
+
+    <div id="social-navbar">
+		<a href="https://au.linkedin.com/in/jeremyfu" target="_blank">
+			<img src="resources/linkedin.png" height="40" width="40">
+		</a>
+		<a href="mailto:imjeremyhi@gmail.com" target="_blank">
+			<img src="resources/gmail.png" height="40" width="40">
+		</a>
+	</div>
+
+
 	</body>
 
 	<script>
-		var person = ["programmer","photographer","entrepreneur"];
-		var i = 0;
-		var heading = document.querySelector("#rotate");
-
-		function slide() {
-			heading.innerHTML = person[i];
-			heading.style.opacity = 1;
-			setTimeout(next, 2000);
-		}
-
-		function next() {
-			i++;
-
-			if (i > person.length-1) {
-				i=0;
-			}
-			heading.style.opacity = 0;
-
-			setTimeout(slide,1000);
-		}
-
-		slide();
-
+		
+		
+/*
 
 		var str = "Hi I'm Jeremy<span class='blinking-cursor'>|</span>",
 	    i = 0,
@@ -159,6 +143,6 @@
 
 		    if (isTag) return type();
 		    setTimeout(type, 80);
-		}());
+		}());*/
 	</script>
 </html>
