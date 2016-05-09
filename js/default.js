@@ -45,7 +45,7 @@ function scroll() {
             scrollTop: $("#about").offset().top
         }, 1500);
     });
-        setTimeout(autodown,10000);    
+        setTimeout(autodown,9500);    
 }
 
 function autodown() {

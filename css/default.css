@@ -110,12 +110,11 @@
 }
 
 #hero-subtitle {
-    position: absolute;
+    position: relative;
     color: #ffffff;
     font-size:2.5em;
-    text-align: left; 
-    margin-left: 35%;
-    bottom:45%;
+    text-align: center;
+    top:33%;
 }
 
 #rotate {
