@@ -1,4 +1,7 @@
-
+.hideme
+{
+    opacity:0;
+}
 
 .no-video .video-container video,
 .touch .video-container video {

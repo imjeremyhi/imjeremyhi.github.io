@@ -29,28 +29,28 @@
 		</section>
 
 	<div class="container" id="about" style="padding-bottom:3%">
-		<h1 style="text-align:center;color:#aaaaaa;">Programming Knowledge</h1>
+		<h1 class="hideme" style="text-align:center;color:#aaaaaa;">Programming Knowledge</h1>
 		<div style="margin-top:6%">
 			<div class="col-xs-4" style="text-align:center;">
-				<button class="animbox animbox-icon">
-					<span style="color:#ffffff">WEB</span>
+				<button class="animbox animbox-icon hideme">
+					<span class="hideme" style="color:#ffffff">WEB</span>
 				</button>
-				<p>HTML/CSS/Jquery</p>
-				<p>NodeJS & ReactJS</p>
-				<p>Wordpress</p>
+				<p class="hideme">HTML/CSS/Jquery</p>
+				<p class="hideme">NodeJS & ReactJS</p>
+				<p class="hideme">Wordpress</p>
 			</div>
 			<div class="col-xs-4" style="text-align:center">
-				<button class="animbox animbox-icon">
-					<span style="color:#ffffff">MOBILE</span>
+				<button class="animbox animbox-icon hideme">
+					<span class="hideme" style="color:#ffffff">MOBILE</span>
 				</button>
-				<p>Android Development with Java</p>
-				<p>IOS Development with Swift</p>
+				<p class="hideme">Android Development with Java</p>
+				<p class="hideme">IOS Development with Swift</p>
 			</div>
 			<div class="col-xs-4" style="text-align:center;">
-				<button class="animbox animbox-icon">
-					<span style="color:#ffffff">SOFTWARE</span>
+				<button class="animbox animbox-icon hideme">
+					<span class="hideme" style="color:#ffffff">SOFTWARE</span>
 				</button>
-				<p>C & Java</p>
+				<p class="hideme">C & Java</p>
 			</div>
 		</div>
 	</div>
@@ -58,7 +58,7 @@
 
 
 	<div class="row" style="background-color:#eeeeee; padding-left:10%; margin-left:0px; margin-right:0px; padding-bottom:10%">
-		<h1 style="margin-top:6%;color:#aaaaaa;margin-bottom:6%;">PROJECTS</h1>
+		<h1 class="hideme" style="margin-top:6%;color:#aaaaaa;margin-bottom:6%;">PROJECTS</h1>
 		
 			<div class="image-container">
 				<a href="http://businessoneconsulting.org/" target="_blank">
@@ -154,5 +154,28 @@
 		    if (isTag) return type();
 		    setTimeout(type, 80);
 		}());*/
+		$(document).ready(function() {
+    
+	    /* Every time the window is scrolled ... */
+	    $(window).scroll( function(){
+	    
+	        /* Check the location of each desired element */
+	        $('.hideme').each( function(i){
+	            
+	            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+	            var bottom_of_window = $(window).scrollTop() + $(window).height();
+	            
+	            /* If the object is completely visible in the window, fade it it */
+	            if( bottom_of_window > bottom_of_object ){
+	                
+	                $(this).animate({'opacity':'1'},500);
+	                    
+	            }
+	            
+	        }); 
+	    
+	    });
+	    
+	});
 	</script>
 </html>
