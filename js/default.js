@@ -1,6 +1,7 @@
 //jQuery is required to run this code
 $( document ).ready(function() {
-
+    var videoElement = document.getElementById("video");
+    heroDisplayFirst(videoElement);
     scaleVideoContainer();
 
     initBannerVideoSize('.video-container .poster img');
@@ -12,14 +13,15 @@ $( document ).ready(function() {
         scaleBannerVideoSize('.video-container .poster img');
         scaleBannerVideoSize('.video-container .filter');
         scaleBannerVideoSize('.video-container video');
+        heroDisplayAfterLoad(videoElement);
     });
 
     $(window).scroll( function(){
-        /* Check the location of each desired element */
+        //Check the location of each desired element 
         $('.hideme').each( function(i){
             var bottom_of_object = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            /* If the object is completely visible in the window, fade it it */
+            // If the object is completely visible in the window, fade it it 
             if( bottom_of_window > bottom_of_object ){
                 $(this).animate({'opacity':'1'},500);
             }
@@ -30,12 +32,12 @@ $( document ).ready(function() {
     scroll();
 
     $(function(){
-            $("#tiny-text").typed({
-              strings: ["", " ^800 Welcome! Check out some of my work below :)"],
-              typeSpeed: 20,
-              backDelay: 500,
-            });
+        $("#tiny-text").typed({
+          strings: ["", " ^800 Welcome! Check out some of my work below :)"],
+          typeSpeed: 20,
+          backDelay: 500,
         });
+    });
 
 
     $(function(){
@@ -45,9 +47,6 @@ $( document ).ready(function() {
           backDelay: 500,
         });
     });
-
-    
-
     
 });
 
@@ -137,4 +136,36 @@ function scaleBannerVideoSize(element){
     });
 }
 
+function heroDisplayFirst(videoElement) {
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
+        //video.style.opacity="0.0";
+        videoElement.parentNode.removeChild(videoElement);
+        $('#removed').val('0');
+        //videoElement.pause();
+        $('.hideme').each( function(i){
+            $(this).animate({'opacity':'1'},500);
+        });
+    } else if (window.innerWidth >= 650) {
+        home.style.background="none";
+    }
+}
 
+function heroDisplayAfterLoad(videoElement) {
+    var videoContainer = document.getElementById("vid-container");
+    var home = document.getElementById("home");
+
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
+        home.style.background="url('./resources/swan.jpg') no-repeat center";
+        //video.style.opacity="0.0";
+        if ($('#removed').val() == '1') {
+            videoContainer.removeChild(videoElement);
+            $('#removed').val('0');
+        }
+        //videoElement.pause();
+    } else if (window.innerWidth >= 650) {
+        videoContainer.appendChild(videoElement);
+        $('#removed').val('1');
+        videoElement.play();
+        //video.style.opacity="1.0";
+    }
+}
