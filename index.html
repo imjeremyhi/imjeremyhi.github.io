@@ -146,10 +146,15 @@
 
 
 		var videoElement = document.getElementsByTagName("video")[0];
+		var home = document.getElementById("home");
 
 		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
-		videoElement.parentNode.removeChild(videoElement);
-		videoElement.pause();
+			videoElement.parentNode.removeChild(videoElement);
+			videoElement.pause();
+		} else if (window.innerWidth >= 650 && !window.onResize){
+			home.style.background="none";
+		} else if (window.onResize) {
+			home.style.background="url("../resources/swan.jpg") no-repeat center";
 		}
 
 /*
