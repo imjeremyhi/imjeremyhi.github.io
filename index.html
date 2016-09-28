@@ -151,6 +151,7 @@
 		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
 			videoElement.parentNode.removeChild(videoElement);
 			videoElement.pause();
+			$(".hideme").removeClass("hideme");
 		} else if (window.innerWidth >= 650 && !window.onResize){
 			home.style.background="none";
 		} else if (window.onResize) {
