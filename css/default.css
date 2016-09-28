@@ -77,7 +77,8 @@
 #social-navbar {
     position:fixed;
     bottom:2%;
-    right:2%;   
+    right:2%; 
+    z-index: 1;  
 }
 
 .image-container {
@@ -103,33 +104,30 @@
 .image-container:hover .after {
     display: block;
     background: rgba(0, 0, 0, .6);
-    padding-top:25%;
+    padding: 85px 0;
     text-align: center;
-    font-size:1em;
-    font-family: Helvetica;
-    color: #c5b395;
+    font-size:1.2em;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
 }
 
 .animbox-icon {
     border-radius: 0px;
     border: 2px solid #9a8e5e;
     color: #fff;
-    overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    overflow: visible;
 }
 
 .animbox {
     border: none;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
     font-size: 14px;
     color: #9A8E5E;
     background: #9A8E5E;
     cursor: default;
-    padding: 17px 35px;
-    width: 250px;
+    text-align: center;
+    padding: 17px 0;
+    width: 100%;
     display: inline-block;
     margin-top: 0px;
     margin-bottom: 30px;
@@ -140,7 +138,6 @@
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    z-index: 90;
 }
 
 #godown {
@@ -208,4 +205,34 @@ img {
   #logo {top:25%; left:50%; max-width:60%; max-height:50%;}
   @keyframes easeacross {0% {top:50%;} 30% {top:50%;} 100% {top:25%;}}
   #contact {top:0; transform:none;}
+}
+
+.image-phone-container {
+    position: relative;
+    height:35em;
+    width:20em;
+    margin-bottom:1em;
+    margin-right:1em;
+    overflow:hidden;
+    float:left;
+}
+
+.image-phone-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+}
+
+.image-phone-container:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+    padding: 175px 0;
+    text-align: center;
+    font-size:1.2em;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
 }

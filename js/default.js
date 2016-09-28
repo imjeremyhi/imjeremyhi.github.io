@@ -19,7 +19,7 @@ $( document ).ready(function() {
 
     $(function(){
             $("#tiny-text").typed({
-              strings: ["", " ^3000 <strong>Work In Progress:</strong> Personal Website <br/> ^1000 <strong>Reading:</strong> The War of Art <br/>"],
+              strings: ["", " ^800 Welcome! Check out some of my work below :)"],
               typeSpeed: 20,
               backDelay: 500,
             });
@@ -28,7 +28,7 @@ $( document ).ready(function() {
 
     $(function(){
         $("#rotate").typed({
-          strings: ["I am a:^2000 developer"/*,"^2000 learner", "^2000 developer", "^2000 entrepreneur"*/],
+          strings: ["I am a:^100 developer"/*,"^2000 learner", "^2000 developer", "^2000 entrepreneur"*/],
           typeSpeed: 10,
           backDelay: 500,
         });
@@ -45,7 +45,7 @@ function scroll() {
             scrollTop: $("#about").offset().top
         }, 1500);
     });
-        setTimeout(autodown,9500);    
+        //setTimeout(autodown,9500);    
 }
 
 function autodown() {
