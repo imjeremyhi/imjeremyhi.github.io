@@ -138,7 +138,7 @@ function scaleBannerVideoSize(element){
 
 function heroDisplayFirst(videoElement) {
     if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
-        || (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
+        (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
         //video.style.opacity="0.0";
         var home = document.getElementById("home");
         home.style.background="url('./resources/swan.jpg') no-repeat center";
