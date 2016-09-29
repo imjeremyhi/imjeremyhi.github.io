@@ -137,8 +137,11 @@ function scaleBannerVideoSize(element){
 }
 
 function heroDisplayFirst(videoElement) {
-    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
+        || (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
         //video.style.opacity="0.0";
+        var home = document.getElementById("home");
+        home.style.background="url('./resources/swan.jpg') no-repeat center";
         videoElement.parentNode.removeChild(videoElement);
         $('#removed').val('0');
         //videoElement.pause();
@@ -154,7 +157,8 @@ function heroDisplayAfterLoad(videoElement) {
     var videoContainer = document.getElementById("vid-container");
     var home = document.getElementById("home");
 
-    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (window.innerWidth < 650)) {
+    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
+        (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
         home.style.background="url('./resources/swan.jpg') no-repeat center";
         //video.style.opacity="0.0";
         if ($('#removed').val() == '1') {
