@@ -149,6 +149,7 @@ function heroDisplayFirst(videoElement) {
             $(this).animate({'opacity':'1'},500);
         });
     } else if (window.innerWidth >= 650) {
+        var home = document.getElementById("home");
         home.style.background="none";
     }
 }
