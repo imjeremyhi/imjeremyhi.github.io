@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/default.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="js/noframework.waypoints.js"></script>
 		<script src="js/default.js"></script>
 		<script src="js/typed.js"></script>
 		<base target="_blank">
@@ -16,7 +17,6 @@
 
 	<body>
 		<section id="home">
-			<!--changes-->
 	    <div id="vid-container">
 	        <video id = "video" autoplay loop>
 	            <source src="resources/swan.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
@@ -31,29 +31,29 @@
 	    </div>
 		</section>
 
-	<div class="container" id="about" style="padding-bottom:3%">
-		<h1 class="hideme" style="text-align:center;color:#aaaaaa;">Programming Knowledge</h1>
+	<div class="container" id="about hideme1" style="padding-bottom:3%">
+		<h1 style="text-align:center;color:#aaaaaa;">Programming Knowledge</h1>
 		<div style="margin-top:6%">
 			<div class="col-xs-4" style="text-align:center;">
-				<button class="animbox animbox-icon hideme">
-					<span class="hideme" style="color:#ffffff">WEB</span>
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">WEB</span>
 				</button>
-				<p class="hideme">HTML & CSS & Jquery</p>
-				<p class="hideme">NodeJS & ReactJS</p>
-				<p class="hideme">Wordpress</p>
+				<p>HTML & CSS & Jquery</p>
+				<p>NodeJS & ReactJS</p>
+				<p>Wordpress</p>
 			</div>
 			<div class="col-xs-4" style="text-align:center">
-				<button class="animbox animbox-icon hideme">
-					<span class="hideme" style="color:#ffffff">MOBILE</span>
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">MOBILE</span>
 				</button>
-				<p class="hideme">Android Development with Java</p>
-				<p class="hideme">IOS Development with Swift</p>
+				<p>Android Development with Java</p>
+				<p>IOS Development with Swift</p>
 			</div>
 			<div class="col-xs-4" style="text-align:center;">
-				<button class="animbox animbox-icon hideme">
-					<span class="hideme" style="color:#ffffff">SOFTWARE</span>
+				<button class="animbox animbox-icon">
+					<span style="color:#ffffff">SOFTWARE</span>
 				</button>
-				<p class="hideme">C & Java</p>
+				<p>C & Java</p>
 			</div>
 		</div>
 	</div>
@@ -61,16 +61,16 @@
 
 
 	<div class="row" style="background-color:#eeeeee; padding-left:10%; margin-left:0px; margin-right:0px; padding-bottom:10%">
-		<h1 class="hideme" style="margin-top:3%;color:#aaaaaa;">PROJECTS</h1>
-		<h3 class="hideme" style="padding-top:3%;color:#aaaaaa;margin-bottom:1%;">WEBSITES</h3>
-			<div class="image-container">
+		<h1 id="hideme1" style="margin-top:3%;color:#aaaaaa;">PROJECTS</h1>
+		<h3 id="hideme1" style="padding-top:3%;color:#aaaaaa;margin-bottom:1%;">WEBSITES</h3>
+			<div id="hideme1" class="image-container">
 				<a href="http://businessoneconsulting.org/" target="_blank">
 					<img src="resources/businessone.PNG">
 					<div class="after">BUSINESSONE CONSULTING<br/>UNSW</div>
 				</a>
 			</div>
 
-			<div class="image-container">
+			<div id="hideme1" class="image-container">
 				<a href="http://www.gowntown.com.au/cufflinks/" target="_blank">
 					<img src="resources/gowntown.PNG">
 					<div class="after">GOWNTOWN</div>
@@ -79,7 +79,7 @@
 		
 
 		
-			<div class="image-container">
+			<div id="hideme1" class="image-container">
 				<a href="http://unswbsoc.com/" target="_blank">
 					<img src="resources/bsoc.PNG">
 					<div class="after">BUSINESS SOCIETY<br/>UNSW</div>
@@ -91,7 +91,7 @@
 				<div class="after">WORLDHAX BLOG<br/><i style="font-size:12px;">Site No Longer Running</i></div>
 			</div>
 
-		<h3 class="hideme" style="clear:both;padding-top:3%;color:#aaaaaa;margin-bottom:1%;">MOBILE APPS</h3>
+		<h3 style="clear:both;padding-top:3%;color:#aaaaaa;margin-bottom:1%;">MOBILE APPS</h3>
 
 			<div class="image-phone-container">
 				<a href="https://itunes.apple.com/in/app/pocket-journal/id1078544961?mt=8" target="_blank">
@@ -108,16 +108,11 @@
 			</div>
 	</div>
 
-
-	
-	
-
 	<footer class="footer" style="background-color:#2f2f2f;">
       <div class="container">
         <p class="text-muted" style="text-align:center;padding-top:5%;color:#ffffff">&copy Jeremy Fu 2016<br/>Experimental Website</p>
       </div>
     </footer>
-
 
     <div id="social-navbar">
     	<a href="https://github.com/imjeremyhi" target="_blank">
@@ -130,39 +125,5 @@
 			<img src="resources/gmail.png" height="40" width="40">
 		</a>
 	</div>
-
-
 	</body>
-
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-66598892-2', 'auto');
-		ga('send', 'pageview');
-
-
-/*
-
-		var str = "Hi I'm Jeremy<span class='blinking-cursor'>|</span>",
-	    i = 0,
-	    isTag,
-	    text;
-
-		(function type() {
-		    text = str.slice(0, ++i);
-		    if (text === str) return;
-		    
-		    document.getElementById('hero-title').innerHTML = text;
-
-		    var char = text.slice(-1);
-		    if( char === '<' ) isTag = true;
-		    if( char === '>' ) isTag = false;
-
-		    if (isTag) return type();
-		    setTimeout(type, 80);
-		}());*/
-	</script>
 </html>
