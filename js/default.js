@@ -1,5 +1,12 @@
-//jQuery is required to run this code
 $( document ).ready(function() {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66598892-2', 'auto');
+        ga('send', 'pageview');
+
     var videoElement = document.getElementById("video");
     heroDisplayFirst(videoElement);
     scaleVideoContainer();
@@ -28,7 +35,6 @@ $( document ).ready(function() {
         }); 
     });
 
-    //setTimeout(rotate,2000);
     scroll();
 
     $(function(){
@@ -56,7 +62,6 @@ function scroll() {
             scrollTop: $("#about").offset().top
         }, 1500);
     });
-        //setTimeout(autodown,9500);    
 }
 
 function autodown() {
@@ -139,12 +144,10 @@ function scaleBannerVideoSize(element){
 function heroDisplayFirst(videoElement) {
     if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
         (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
-        //video.style.opacity="0.0";
         var home = document.getElementById("home");
         home.style.background="url('./resources/swan.jpg') no-repeat center";
         videoElement.parentNode.removeChild(videoElement);
         $('#removed').val('0');
-        //videoElement.pause();
         $('.hideme').each( function(i){
             $(this).animate({'opacity':'1'},500);
         });
@@ -161,16 +164,13 @@ function heroDisplayAfterLoad(videoElement) {
     if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
         (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
         home.style.background="url('./resources/swan.jpg') no-repeat center";
-        //video.style.opacity="0.0";
         if ($('#removed').val() == '1') {
             videoContainer.removeChild(videoElement);
             $('#removed').val('0');
         }
-        //videoElement.pause();
     } else if (window.innerWidth >= 650) {
         videoContainer.appendChild(videoElement);
         $('#removed').val('1');
         videoElement.play();
-        //video.style.opacity="1.0";
     }
 }
