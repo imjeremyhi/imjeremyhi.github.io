@@ -50,7 +50,7 @@
     text-align: left;
     left:4%;
     bottom:10%;
-    font-size:1em;
+    font-size:15px;
 }
 
 #hero-title {
@@ -232,4 +232,12 @@ img {
     font-size:1.2em;
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
+}
+
+.social-spacing {
+    margin-right: 10px;
+}
+
+p {
+    font-size: 15px;
 }

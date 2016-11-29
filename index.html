@@ -2,12 +2,15 @@
 
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Jeremy's personal portfolio">
 		<title>Jeremy Fu | Web Developer</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
+
+		<!-- Load critical css -->
 		<link rel="stylesheet" href="css/default.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-		<script src="js/default.js"></script>
-		<script src="js/typed.js"></script>
+
 		<base target="_blank">
 	</head>
 	<form>
@@ -110,15 +113,24 @@
     </footer>
 
     <div id="social-navbar">
-    	<a href="https://github.com/imjeremyhi" target="_blank">
+    	<a href="https://github.com/imjeremyhi" target="_blank" class="social-spacing">
     		<img src="resources/github.png" height="40" width="40">
     	</a>
-		<a href="https://au.linkedin.com/in/jeremyfu" target="_blank">
+		<a href="https://au.linkedin.com/in/jeremyfu" target="_blank" class="social-spacing">
 			<img src="resources/linkedin.png" height="40" width="40">
 		</a>
 		<a href="mailto:imjeremyhi@gmail.com" target="_blank">
 			<img src="resources/gmail.png" height="40" width="40">
 		</a>
 	</div>
+
+	<!-- Load less critical css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Load less critical javascript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/default.js"></script>
+	<script src="js/typed.min.js"></script>
+
 	</body>
 </html>
