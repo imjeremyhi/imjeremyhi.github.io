@@ -142,35 +142,35 @@ function scaleBannerVideoSize(element){
 }
 
 function heroDisplayFirst(videoElement) {
-    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
-        (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
-        var home = document.getElementById("home");
-        home.style.background="url('./resources/swan.jpg') no-repeat center";
-        videoElement.parentNode.removeChild(videoElement);
-        $('#removed').val('0');
-        $('.hideme').each( function(i){
-            $(this).animate({'opacity':'1'},500);
-        });
-    } else if (window.innerWidth >= 650) {
-        var home = document.getElementById("home");
-        home.style.background="none";
-    }
+    // if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
+    //     (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
+    //     var home = document.getElementById("home");
+    //     home.style.background="url('./resources/swan.jpg') no-repeat center";
+    //     videoElement.parentNode.removeChild(videoElement);
+    //     $('#removed').val('0');
+    //     $('.hideme').each( function(i){
+    //         $(this).animate({'opacity':'1'},500);
+    //     });
+    // } else if (window.innerWidth >= 650) {
+    //     var home = document.getElementById("home");
+    //     home.style.background="none";
+    // }
 }
 
 function heroDisplayAfterLoad(videoElement) {
-    var videoContainer = document.getElementById("vid-container");
-    var home = document.getElementById("home");
+    // var videoContainer = document.getElementById("vid-container");
+    // var home = document.getElementById("home");
 
-    if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
-        (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
-        home.style.background="url('./resources/swan.jpg') no-repeat center";
-        if ($('#removed').val() == '1') {
-            videoContainer.removeChild(videoElement);
-            $('#removed').val('0');
-        }
-    } else if (window.innerWidth >= 650) {
-        videoContainer.appendChild(videoElement);
-        $('#removed').val('1');
-        videoElement.play();
-    }
+    // if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
+    //     (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) {
+    //     home.style.background="url('./resources/swan.jpg') no-repeat center";
+    //     if ($('#removed').val() == '1') {
+    //         videoContainer.removeChild(videoElement);
+    //         $('#removed').val('0');
+    //     }
+    // } else if (window.innerWidth >= 650) {
+    //     videoContainer.appendChild(videoElement);
+    //     $('#removed').val('1');
+    //     videoElement.play();
+    // }
 }

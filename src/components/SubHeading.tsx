@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 const SubHeadingText = styled.h3`
     color: #aaaaaa;
-    marginBottom: 1%;
-    paddingTop: 3%;
+    margin-bottom: 1%;
+    padding-top: 3%;
+    text-align: center;
 `;
 
 export const SubHeading = ({ text }: { text: string}) => (

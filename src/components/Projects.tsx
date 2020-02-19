@@ -8,6 +8,13 @@ const ProjectCategory = styled.div`
     clear: both;
 `;
 
+const ProjectGrouping = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+`;
+
 const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string})  => (
     <a href={url} target="_blank" rel="noopener noreferrer">
         <img src={imgSrc} alt={altText} />
@@ -16,13 +23,13 @@ const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, img
 );
 
 const PhoneContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string}) => (
-    <div className="image-phone-container">
+    <div className="image-phone-container hideme">
         <ProjectContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} />
     </div>
 );
 
 const WebsiteContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string}) => (
-    <div className="image-container">
+    <div className="image-container hideme">
         <ProjectContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} />
     </div>
 );
@@ -94,19 +101,23 @@ export const Projects = () => (
             
             <ProjectCategory>
                 <SubHeading text="Websites" />
-                {
-                    websiteData.map(({url, imgSrc, layoverText, altText}) => (
-                        <WebsiteContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} key={altText} />
-                    ))
-                }
+                <ProjectGrouping>
+                    {
+                        websiteData.map(({url, imgSrc, layoverText, altText}) => (
+                            <WebsiteContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} key={altText} />
+                        ))
+                    }
+                </ProjectGrouping>
             </ProjectCategory>
             <ProjectCategory>
                 <SubHeading text="Mobile apps" />
-                {
-                    appData.map(({url, imgSrc, layoverText, altText}) => (
-                        <PhoneContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} key={altText} />
-                    ))
-                }
+                <ProjectGrouping>
+                    {
+                        appData.map(({url, imgSrc, layoverText, altText}) => (
+                            <PhoneContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} key={altText} />
+                        ))
+                    }
+                </ProjectGrouping>
             </ProjectCategory>
         </>
     </Section>

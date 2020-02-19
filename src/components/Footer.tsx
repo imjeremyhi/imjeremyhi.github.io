@@ -10,8 +10,8 @@ const Wrapper = styled.footer`
 
 const Author = styled.p`
     color: #ffffff;
-    padding-top: 5%;
     text-align: center;
+    margin: 15px;
 `;
 
 export const Footer = () => {
@@ -19,7 +19,7 @@ export const Footer = () => {
         <Wrapper>
             <div className="container">
                 <Author>
-                    &copy; Jeremy Fu 2016
+                    &copy; Jeremy Fu 2020
                 </Author>
             </div>
         </Wrapper>

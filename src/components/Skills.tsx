@@ -1,4 +1,5 @@
 import React from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { Heading } from './Heading';
 import { Section } from './Section';
@@ -27,14 +28,16 @@ const SkillColumn = ({ colHeading, colRows }: { colHeading: string, colRows: Arr
 export const Skills = () => {
     return (
         <Section id="about">
-            <>
-                <Heading text="Programming Knowledge" />
-                <div style={{ marginTop: "6%" }}>
-                    <SkillColumn colHeading="WEB" colRows={["HTML & CSS & Jquery", "NodeJS & ReactJS", "Wordpress"]} />
-                    <SkillColumn colHeading="MOBILE" colRows={["Android Development with Java", "iOS Development with Swift"]} />
-                    <SkillColumn colHeading="SOFTWARE" colRows={["C & Java"]} />
-                </div>
-            </>
+            <TransitionGroup component={null}>
+                <CSSTransition classNames="fade" timeout={500}>
+                    <>
+                        <Heading text="Programming Knowledge" />
+                        <SkillColumn colHeading="WEB" colRows={["HTML & CSS & Jquery", "NodeJS & ReactJS", "Wordpress"]} />
+                        <SkillColumn colHeading="MOBILE" colRows={["Android Development with Java", "iOS Development with Swift"]} />
+                        <SkillColumn colHeading="SOFTWARE" colRows={["C & Java"]} />
+                    </>
+                </CSSTransition>
+            </TransitionGroup>
         </Section>
     );
 }
