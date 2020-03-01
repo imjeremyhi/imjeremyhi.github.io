@@ -3,7 +3,7 @@ import { Spring } from "react-spring/renderprops";
 import styled from 'styled-components';
 import { Slider } from './CarouselTwo';
 import { Heading } from './Heading';
-import { ProjectCarousel } from './ProjectCarousel';
+// import { ProjectCarousel } from './ProjectCarousel';
 import { Section } from './Section';
 // import { Slider } from './Carousel';
 import { SubHeading } from './SubHeading';
@@ -20,12 +20,12 @@ const ProjectCategory = styled.div`
 //     align-content: center;
 // `;
 
-const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string})  => (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-        <img src={imgSrc} alt={altText} />
-        <div className="after">{layoverText}</div>
-    </a>
-);
+// const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string})  => (
+//     <a href={url} target="_blank" rel="noopener noreferrer">
+//         <img src={imgSrc} alt={altText} />
+//         <div className="after">{layoverText}</div>
+//     </a>
+// );
 
 // const PhoneContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string}) => (
 //     <div className="image-phone-container hideme">
@@ -39,32 +39,32 @@ const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, img
 //     </div>
 // );
 
-const slideData = [
-    {
-      index: 0,
-      headline: '',
-      button: '',
-      src: "resources/piano.jpg"
-    },
-    {
-      index: 1,
-      headline: 'In The Wilderness',
-      button: 'Book travel',
-      src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
-    },
-    {
-      index: 2,
-      headline: 'For Your Current Mood',
-      button: 'Listen',
-      src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
-    },
-    {
-      index: 3,
-      headline: 'Focus On The Writing',
-      button: 'Get Focused',
-      src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
-    }
-  ]
+// const slideData = [
+//     {
+//       index: 0,
+//       headline: '',
+//       button: '',
+//       src: "resources/piano.jpg"
+//     },
+//     {
+//       index: 1,
+//       headline: 'In The Wilderness',
+//       button: 'Book travel',
+//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
+//     },
+//     {
+//       index: 2,
+//       headline: 'For Your Current Mood',
+//       button: 'Listen',
+//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
+//     },
+//     {
+//       index: 3,
+//       headline: 'Focus On The Writing',
+//       button: 'Get Focused',
+//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
+//     }
+//   ]
 
 const websiteData = [
     {

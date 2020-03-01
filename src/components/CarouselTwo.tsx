@@ -5,8 +5,8 @@ import 'react-awesome-slider/src/styles.js';
 export const Slider = ({projects}: any) => (
   <AwesomeSlider>
       {
-          projects.map(({imgSrc}: any) => (
-            <div data-src={imgSrc} />
+          projects.map(({imgSrc, altText}: any) => (
+            <div data-src={imgSrc} key={altText} />
           ))
       }
   </AwesomeSlider>

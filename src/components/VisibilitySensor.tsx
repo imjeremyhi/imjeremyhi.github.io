@@ -22,7 +22,7 @@ class VisibilitySensor extends Component<any, any> {
           once &&
             isVisible &&
             this.setState({ active: false }, () =>
-              console.log("turned the things off")
+              {}
             );
         }}
         {...otherProps}
@@ -37,7 +37,7 @@ class VisibilitySensor extends Component<any, any> {
 }
 
 // @ts-ignore
-VisibilitySensor.PropTypes = {
+VisibilitySensor.propTypes = {
   children: PropTypes.func.isRequired,
   once: PropTypes.bool
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Spring } from "react-spring/renderprops";
 import styled from 'styled-components';
 import { ContactForm } from './ContactForm';
@@ -23,30 +23,51 @@ const FormContainer = styled.div`
     width: 50%;
 `;
 
-export const Contact = () => (
-    <VisibilitySensor once>
-    {({ isVisible }: any) => (
-        <Spring delay={500} to={{ opacity: isVisible ? 1 : 0 }}>
-            {({ opacity }) => 
-                <Section id="contact">
-                    <div style={{ opacity }}>
-                        <Heading text="Contact" />
-                        <ContactContainer>
-                            {
-                                // Throws an error if client is not connected to the internet
-                                window.navigator.onLine  &&
-                                <MapContainer>
-                                    <Map />
-                                </MapContainer>
-                            }
-                            <FormContainer>
-                                <ContactForm />
-                            </FormContainer>
-                        </ContactContainer>
-                    </div>
-                </Section>
-            }
-            </Spring>
-        )}
-    </VisibilitySensor>
-);
+export class Contact extends Component {
+    resize = () => this.forceUpdate()
+
+    isSmallWindow = () => {
+        const { userAgent } = navigator;
+        const { innerWidth } = window;
+
+        return userAgent.match(/(iPhone|Android)/i) || innerWidth < 1100;
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.resize)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resize)
+    }
+
+    render() {
+        return (
+            <VisibilitySensor once>
+                {({ isVisible }: any) => (
+                    <Spring delay={500} to={{ opacity: isVisible ? 1 : 0 }}>
+                        {({ opacity }) => 
+                            <Section id="contact">
+                                <div style={{ opacity }}>
+                                    <Heading text="Contact" />
+                                    <ContactContainer>
+                                        {
+                                            // Throws an error if client is not connected to the internet
+                                            !this.isSmallWindow() && window.navigator.onLine  &&
+                                            <MapContainer>
+                                                <Map />
+                                            </MapContainer>
+                                        }
+                                        <FormContainer>
+                                            <ContactForm />
+                                        </FormContainer>
+                                    </ContactContainer>
+                                </div>
+                            </Section>
+                        }
+                    </Spring>
+                )}
+            </VisibilitySensor>
+        );
+    }
+};
