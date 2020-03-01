@@ -69,43 +69,43 @@ const slideData = [
 const websiteData = [
     {
         url: "https://internationalaom.com/",
-        imgSrc: "resources/piano.png",
+        imgSrc: "./resources/piano.png",
         layoverText: "INTERNATIONAL AOM",
         altText: "Piano teaching website",
     },
     {
         url: "http://kiyobox.storenvy.com/",
-        imgSrc: "resources/kiyo.png",
+        imgSrc: "./resources/kiyo.png",
         layoverText: "KIYO BOX",
         altText: "Cosmetics website",
     },
     {
         url: "https://www.alphatime.co/",
-        imgSrc: "resources/alpha.png",
+        imgSrc: "./resources/alpha.png",
         layoverText: "ALPHA TIME",
         altText: "Dating coaching website",
     },
     {
         url: "http://businessoneconsulting.org/",
-        imgSrc: "resources/businessone.png",
+        imgSrc: "./resources/businessone.png",
         layoverText: "BUSINESSONE CONSULTING UNSW",
         altText: "UNSW BusinessOne website",
     },
     {
         url: "http://unswbsoc.com/",
-        imgSrc: "resources/bsoc.png",
+        imgSrc: "./resources/bsoc.png",
         layoverText: "BUSINESS SOCIETY UNSW",
         altText: "UNSW business society website",
     },
     {
         url: "",
-        imgSrc: "resources/worldhax.png",
+        imgSrc: "./resources/worldhax.png",
         layoverText: "WORLDHAX BLOG Site No Longer Running",
         altText: "Life blog website",
     },
     {
         url: "http://www.gowntown.com.au/cufflinks/",
-        imgSrc: "resources/gowntown.png",
+        imgSrc: "./resources/gowntown.png",
         layoverText: "GOWNTOWN",
         altText: "Gowntown website",
     }
@@ -115,13 +115,13 @@ const websiteData = [
 const appData = [
     {
         url: "https://itunes.apple.com/in/app/pocket-journal/id1078544961?mt=8",
-        imgSrc: "resources/journal.png",
+        imgSrc: "./resources/journal.png",
         layoverText: "POCKET JOURNAL",
         altText: "Journal app",
     },
     {
         url: "https://itunes.apple.com/in/app/night-fx/id1083457773?mt=8",
-        imgSrc: "resources/nightfx.png",
+        imgSrc: "./resources/nightfx.png",
         layoverText: "NIGHT FX",
         altText: "Nightfx app",
     }
