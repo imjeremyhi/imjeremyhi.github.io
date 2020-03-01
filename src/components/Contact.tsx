@@ -19,8 +19,12 @@ const MapContainer = styled.div`
     width: 40%;
 `;
 
-const FormContainer = styled.div`
+const FormContainerSmall = styled.div`
     width: 50%;
+`;
+
+const FormContainerLarge = styled.div`
+    width: 80%
 `;
 
 export class Contact extends Component {
@@ -58,9 +62,15 @@ export class Contact extends Component {
                                                 <Map />
                                             </MapContainer>
                                         }
-                                        <FormContainer>
-                                            <ContactForm />
-                                        </FormContainer>
+                                        {
+                                            this.isSmallWindow() ? 
+                                            <FormContainerLarge>
+                                                <ContactForm />
+                                            </FormContainerLarge> :
+                                            <FormContainerSmall>
+                                                <ContactForm />
+                                            </FormContainerSmall>
+                                        }
                                     </ContactContainer>
                                 </div>
                             </Section>

@@ -22,6 +22,10 @@ const Overlay = styled.div`
     color: #ffffff;
 `;
 
+const HeroImg = styled.img`
+    max-width: 100%;
+`;
+
 const HeroVideo = styled.video`
     height: auto;
     vertical-align: middle;
@@ -83,7 +87,7 @@ export class Hero extends Component {
             <HeroWrapper>
                 { 
                     this.isSmallWindow() ?
-                    <img src={swan} alt="swan" /> : 
+                    <HeroImg src={swan} alt="swan" /> : 
                     <HeroVideo id = "video" autoPlay loop>
                         <source src="resources/swan.mp4" type="video/mp4" />
                     </HeroVideo>

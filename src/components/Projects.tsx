@@ -1,70 +1,15 @@
 import React from 'react';
 import { Spring } from "react-spring/renderprops";
 import styled from 'styled-components';
-import { Slider } from './CarouselTwo';
+import { Slider } from './Carousel';
 import { Heading } from './Heading';
-// import { ProjectCarousel } from './ProjectCarousel';
 import { Section } from './Section';
-// import { Slider } from './Carousel';
 import { SubHeading } from './SubHeading';
 import VisibilitySensor from "./VisibilitySensor";
 
 const ProjectCategory = styled.div`
     clear: both;
 `;
-
-// const ProjectGrouping = styled.div`
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-evenly;
-//     align-content: center;
-// `;
-
-// const ProjectContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string})  => (
-//     <a href={url} target="_blank" rel="noopener noreferrer">
-//         <img src={imgSrc} alt={altText} />
-//         <div className="after">{layoverText}</div>
-//     </a>
-// );
-
-// const PhoneContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string}) => (
-//     <div className="image-phone-container hideme">
-//         <ProjectContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} />
-//     </div>
-// );
-
-// const WebsiteContainer = ({url, imgSrc, layoverText, altText}: {url: string, imgSrc: string, layoverText: string, altText: string}) => (
-//     <div className="image-container hideme">
-//         <ProjectContainer url={url} imgSrc={imgSrc} layoverText={layoverText} altText={altText} />
-//     </div>
-// );
-
-// const slideData = [
-//     {
-//       index: 0,
-//       headline: '',
-//       button: '',
-//       src: "resources/piano.jpg"
-//     },
-//     {
-//       index: 1,
-//       headline: 'In The Wilderness',
-//       button: 'Book travel',
-//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg'
-//     },
-//     {
-//       index: 2,
-//       headline: 'For Your Current Mood',
-//       button: 'Listen',
-//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
-//     },
-//     {
-//       index: 3,
-//       headline: 'Focus On The Writing',
-//       button: 'Get Focused',
-//       src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
-//     }
-//   ]
 
 const websiteData = [
     {
@@ -111,7 +56,6 @@ const websiteData = [
     }
 ];
 
-// https://mockuphone.com/iphone7rosegold
 const appData = [
     {
         url: "https://itunes.apple.com/in/app/pocket-journal/id1078544961?mt=8",
@@ -163,14 +107,6 @@ export const Projects = () => (
             <Heading text="Projects" />
             <WebProjects />
             <MobileProjects />
-            {/* <ProjectCategory>
-                <SubHeading text="Websites" />
-                <Slider projects={websiteData} />
-            </ProjectCategory>
-            <ProjectCategory>
-                <SubHeading text="Mobile apps" />
-                <Slider projects={appData} />
-            </ProjectCategory> */}
         </>
     </Section>
 );
