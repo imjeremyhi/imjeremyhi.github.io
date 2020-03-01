@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Typed from 'react-typed';
 const swan = './resources/swan.jpg';
 
-/**
- *     max-width: 100%;
-    background-size: cover;
-    overflow: hidden;
- */
 const HeroWrapper = styled.div`
-    position: relative;  
+    position: relative;
+`;
+
+const Overlay = styled.div`
+    background-color: rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #ffffff;
+`;
+
+const HeroVideo = styled.video`
+    height: auto;
+    vertical-align: middle;
+    width: 100%;
+`;
+
+const Row = styled.div`
+    width: 100%;
 `;
 
 const DownArrow = styled.img`
@@ -17,8 +38,37 @@ const DownArrow = styled.img`
     width: 80px;
 `;
 
+const Title = styled.div`
+    font-size: 4em;
+`;
+
+const Subtitle = styled.div`
+    font-size: 2.5em;
+`;
+
+const SmallTagline = styled.div`
+    height: 21px;
+    font-size:15px;
+`;
+
+const OverlayContent = styled.div`
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+`;
+
 export class Hero extends Component {
     resize = () => this.forceUpdate()
+
+    isSmallWindow = () => {
+        const { userAgent } = navigator;
+        const { innerWidth } = window;
+
+        return userAgent.match(/(iPhone|Android)/i) || innerWidth < 650;
+    }
 
     componentDidMount() {
         window.addEventListener('resize', this.resize)
@@ -31,47 +81,43 @@ export class Hero extends Component {
     render() {
         return (
             <HeroWrapper>
-            {
-                ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || 
-                    (navigator.userAgent.match(/Android/i)) || (window.innerWidth < 650)) ?
-                    <div id="vid-container">
-                        <img src={swan} />
-                    </div>
-                    // var home = document.getElementById("home");
-                    // home.style.background="url('./resources/swan.jpg') no-repeat center";
-                    // videoElement.parentNode.removeChild(videoElement);
-                    // $('#removed').val('0');
-                    // $('.hideme').each( function(i){
-                    //     $(this).animate({'opacity':'1'},500);
-                    // });
-                    : 
-                    <video id = "video" autoPlay loop>
-                        <source src="resources/swan.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                        <source src="resources/swan.mp4" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                    </video>
-                // } else if (window.innerWidth >= 650) {
-                //     var home = document.getElementById("home");
-                //     home.style.background="none";
+                { 
+                    this.isSmallWindow() ?
+                    <img src={swan} alt="swan" /> : 
+                    <HeroVideo id = "video" autoPlay loop>
+                        <source src="resources/swan.mp4" type="video/mp4" />
+                    </HeroVideo>
                 }
-            {/* } */}
-                {/* <div id="vid-container">
-                    <video id = "video" autoPlay loop>
-                        <source src="resources/swan.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                        <source src="resources/swan.mp4" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                    </video>
-                </div> */}
-                <div className="overlay-desc">
-                    <div id="hero-title">Jeremy Fu</div>
-                    <div id ="hero-subtitle">
-                        <span id="rotate" />
-                    </div>
-                    <div id="godown">
-                        <a href="javascript:;">
-                            <DownArrow src="resources/white-down-arrow.png" alt="Down arrow" />
-                        </a>
-                    </div>
-                    <div id="tiny-text"/>
-                </div>
+                <Overlay>
+                    <OverlayContent>
+                        <Row>
+                            <Title>Jeremy Fu</Title>
+                        </Row>
+                        <Row>
+                            <Subtitle>
+                                <Typed
+                                    strings={["I am a:^500 developer"]}
+                                    typeSpeed={40}
+                                    showCursor={false}
+                                />
+                            </Subtitle>
+                        </Row>
+                        <Row id="godown">
+                            {/* <a href="javascript:;"> */}
+                            <DownArrow src="resources/down-arrow.png" alt="Down arrow" />
+                            {/* </a> */}
+                        </Row>
+                        <Row>
+                            <SmallTagline>
+                                <Typed
+                                    strings={["^2000 Welcome! Check out some of my work below :)"]}
+                                    typeSpeed={40}
+                                    showCursor={false}
+                                />
+                            </SmallTagline>
+                        </Row>
+                    </OverlayContent>
+                </Overlay>
             </HeroWrapper>
         );
     }

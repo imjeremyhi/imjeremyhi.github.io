@@ -9,5 +9,5 @@ const SubHeadingText = styled.h3`
 `;
 
 export const SubHeading = ({ text }: { text: string}) => (
-    <SubHeadingText className="hideme">{text}</SubHeadingText>
+    <SubHeadingText>{text}</SubHeadingText>
 )
