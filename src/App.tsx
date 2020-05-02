@@ -16,37 +16,17 @@ const Main = styled.div`
 `;
 
 export class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.divToFocus = React.createRef();
-  // }
-
-  // handleDownClick = event => {
-  //   if(this.divToFocus.current){
-  //       this.divToFocus.current.scrollIntoView({ 
-  //          behavior: "smooth", 
-  //          block: "nearest"
-  //       })
-  //   }
-  // }
-
-  componentDidMount() {
-
-  }
-
-  render() {
-    return (
-      <Main>
-        {/* <Hero handleClick={this.handleDownClick} />
-        <Skills ref={this.divToFocus} /> */}
-        <NavBar />
-        <Hero />
-        <Projects />
-        <About />
-        <Contact />
-        <Footer />
-        <Social />
-      </Main>
-    );
-  }
+    render() {
+        return (
+            <Main>
+            <NavBar />
+            <Hero />
+            <Projects />
+            <About />
+            <Contact />
+            <Footer />
+            <Social />
+            </Main>
+        );
+    }
 }

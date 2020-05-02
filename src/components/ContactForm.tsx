@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Alert from '@material-ui/lab/Alert';
+import Button from 'react-bootstrap/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 type Props = {};
 
@@ -7,6 +10,8 @@ type State = {
     name: string,
     email: string,
     message: string,
+    showSuccessAlert: boolean,
+    showFailureAlert: boolean
 };
 
 const Input = styled.input`
@@ -39,8 +44,8 @@ const TextArea = styled.textarea`
 `;
 
 const NAME_PLACEHOLDER = 'Name';
-const EMAIL = 'Email Address';
-const MESSAGE = 'Send me a message';
+const EMAIL_PLACEHOLDER = 'Email Address';
+const MESSAGE_PLACEHOLDER = 'Send me a message';
 
 export class ContactForm extends Component<Props, State> {
     constructor(props: Props) {
@@ -49,10 +54,14 @@ export class ContactForm extends Component<Props, State> {
             name: '',
             email: '',
             message: '',
+            showSuccessAlert: false,
+            showFailureAlert: false
         };
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSuccessClose = this.handleSuccessClose.bind(this);
+        this.handleFailureClose = this.handleFailureClose.bind(this);
     }
   
     handleChange(event: any) {
@@ -62,32 +71,82 @@ export class ContactForm extends Component<Props, State> {
                     name: event.target.value
                 });
                 break;
-            case EMAIL:
+            case EMAIL_PLACEHOLDER:
                 this.setState({
                     email: event.target.value
                 });
                 break;
-            case MESSAGE:
+            case MESSAGE_PLACEHOLDER:
                 this.setState({
                     message: event.target.value
                 });
         }
     }
+
+    handleSuccessClose() {
+        this.setState({
+            showSuccessAlert: false
+        });
+    }
+
+    handleFailureClose() {
+        this.setState({
+            showFailureAlert: false
+        });
+    }
   
-    handleSubmit(event: any) {
-        alert('A name was submitted: ' + this.state.name);
-        event.preventDefault();
+    async handleSubmit(event: any) {
+        const data = {
+            name: this.state.name,
+            email: this.state.email,
+            message: this.state.message,
+            currentDate: new Date().toString()
+        };
+        
+        const addRequestUrl = 'https://us-central1-personal-website-2c8eb.cloudfunctions.net/addRequest';
+        try {
+            await fetch(addRequestUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            });
+
+            this.setState({
+                showSuccessAlert: true
+            });
+        } catch (e) {
+            this.setState({
+                showFailureAlert: true
+            });
+        }
     }
   
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <Input type="text" value={this.state.name} onChange={this.handleChange} placeholder={"Name"} />
-                <Input type="text" value={this.state.email} onChange={this.handleChange} placeholder={"Email Address"} />
-                <TextArea rows={5} value={this.state.message} onChange={this.handleChange} placeholder={"Send me a message"} />
+        const { name, email, message, showSuccessAlert, showFailureAlert } = this.state;
 
-                <Input type="submit" value="Submit" />
-            </form>
+        return (
+            <>
+                <Input type="text" value={name} onChange={this.handleChange} placeholder={NAME_PLACEHOLDER} />
+                <Input type="text" value={email} onChange={this.handleChange} placeholder={EMAIL_PLACEHOLDER} />
+                <TextArea rows={5} value={message} onChange={this.handleChange} placeholder={MESSAGE_PLACEHOLDER} />
+
+                <Button variant="success" onClick={this.handleSubmit} style={{ float: 'right' }}>
+                    Submit
+                </Button>
+                <Snackbar open={showSuccessAlert} autoHideDuration={3000} onClose={this.handleSuccessClose}>
+                    <Alert onClose={this.handleSuccessClose} severity="success">
+                        Thanks for your message!
+                    </Alert>
+                </Snackbar>
+                <Snackbar open={showFailureAlert} autoHideDuration={5000} onClose={this.handleFailureClose}>
+                    <Alert onClose={this.handleFailureClose} severity="warning">
+                        Oops something went wrong! Please try again or at a later time 
+                    </Alert>
+                </Snackbar>
+            </>
         );
     }
 }

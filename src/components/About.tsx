@@ -18,6 +18,11 @@ const LargerSpacing = styled.div`
     padding-top: 30px;
 `;
 
+const AboutContainer = styled.div`
+    width: 80%;
+    margin: auto;
+`;
+
 const SkillHeadingBox = styled.div`
     background: #9A8E5E;
     text-align: center;
@@ -59,11 +64,15 @@ export const About = () => (
                         <div style={{ opacity }}>
                             <Heading text="About" />
                             <LargerSpacing />
-                            <p>Current software engineer at Facebook. Formerly worked at Instagram, Atlassian. Worked in front-end, back-end and platform roles. I'm friendly, punctual, and willing to take on a wide range of different projects.</p>
+                            <AboutContainer>
+                            <p>
+                                I'm a software engineer that has worked at well known companies such as Facebook and Atlassian. I have worked in front-end, back-end and platform roles. I spent my university days as an academic tutor and actively involved in the freelance space, helping university students get their start up ideas up and running. I'm willing to take on a wide range of different projects. If there's something you think I can help you with - please leave a message in the contact section.
+                            </p>
+                            </AboutContainer>
                             <SkillsGrouping>
-                                <SkillColumn colHeading="Web" colRows={["HTML & CSS & Jquery", "NodeJS & ReactJS", "Wordpress"]} />
+                                <SkillColumn colHeading="Web" colRows={["HTML, CSS & Jquery", "ExpressJS & ReactJS", "Wordpress"]} />
                                 <SkillColumn colHeading="Mobile" colRows={["Android Development with Java", "iOS Development with Swift"]} />
-                                <SkillColumn colHeading="Software" colRows={["C & Java"]} />
+                                <SkillColumn colHeading="Software" colRows={["Python", "NodeJS", "Java"]} />
                             </SkillsGrouping>
                         </div>
                     </Section>

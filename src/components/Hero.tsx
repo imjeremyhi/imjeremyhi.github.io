@@ -84,7 +84,7 @@ export class Hero extends Component {
 
     render() {
         return (
-            <HeroWrapper>
+            <HeroWrapper id="home">
                 { 
                     this.isSmallWindow() ?
                     <HeroImg src={swan} alt="swan" /> : 
@@ -107,9 +107,7 @@ export class Hero extends Component {
                             </Subtitle>
                         </Row>
                         <Row id="godown">
-                            {/* <a href="javascript:;"> */}
                             <DownArrow src="resources/down-arrow.png" alt="Down arrow" />
-                            {/* </a> */}
                         </Row>
                         <Row>
                             <SmallTagline>

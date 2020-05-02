@@ -5,7 +5,7 @@ const SocialNavbar = styled.div`
     position: fixed;
     bottom: 2%;
     right: 2%; 
-    z-index: 1; 
+    z-index: 2; 
 `;
 
 const SocialImg = styled.img`
@@ -14,7 +14,7 @@ const SocialImg = styled.img`
 `;
 
 const SocialSpacing = styled.a`
-    marginRight: 15px;
+    padding: 5px;
 `;
 
 const SocialOption = ({ url, imgUrl, altText }: { url: string, imgUrl: string, altText: string}) => (
