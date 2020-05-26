@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Typed from 'react-typed';
+import Typist from 'react-typist';
+
 const swan = './resources/swan.jpg';
+const video = './resources/personal-website-video.mp4';
 
 const HeroWrapper = styled.div`
     position: relative;
@@ -36,23 +39,24 @@ const Row = styled.div`
     width: 100%;
 `;
 
-const DownArrow = styled.img`
+const DownArrow: any = styled.img`
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    height: ${({ isSmallWindow }: any) => isSmallWindow ? '40px' : '80px'};
+    width: ${({ isSmallWindow }: any) => isSmallWindow ? '40px' : '80px'};
 `;
 
-const Title = styled.div`
-    font-size: 4em;
+const Title: any = styled.div`
+    font-size: ${({ isSmallWindow }: any) => isSmallWindow ? '2em' : '4em'};
 `;
 
-const Subtitle = styled.div`
-    font-size: 2.5em;
+const Subtitle: any = styled.div`
+    font-size: ${({ isSmallWindow }: any) => isSmallWindow ? '1.5em' : '2.5em'};
+    margin-bottom: 10px;
 `;
 
-const SmallTagline = styled.div`
-    height: 21px;
-    font-size:15px;
+const SmallTagline: any = styled.div`
+    font-size: ${({ isSmallWindow }: any) => isSmallWindow ? '10px' : '15px'};
+    margin-bottom: 10px;
 `;
 
 const OverlayContent = styled.div`
@@ -64,7 +68,27 @@ const OverlayContent = styled.div`
     text-align: center;
 `;
 
-export class Hero extends Component {
+interface Props {};
+
+interface State {
+    showTitle: boolean,
+    showSubtitle: boolean,
+    showTagline: boolean,
+    showDownArrow: boolean,
+};
+
+export class Hero extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            showTitle: false,
+            showSubtitle: false,
+            showTagline: false,
+            showDownArrow: false,
+        };
+    }
+
     resize = () => this.forceUpdate()
 
     isSmallWindow = () => {
@@ -75,6 +99,27 @@ export class Hero extends Component {
     }
 
     componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                showTitle: true,
+            });
+        }, 3000);
+        setTimeout(() => {
+            this.setState({
+                showSubtitle: true,
+            });
+        }, 4000);
+        setTimeout(() => {
+            this.setState({
+                showTagline: true,
+            });
+        }, 6000);
+        setTimeout(() => {
+            this.setState({
+                showDownArrow: true,
+            });
+        }, 9800);
+
         window.addEventListener('resize', this.resize)
     }
 
@@ -83,41 +128,48 @@ export class Hero extends Component {
     }
 
     render() {
+        const { showTitle, showSubtitle, showTagline, showDownArrow } = this.state;
+
         return (
             <HeroWrapper id="home">
-                { 
-                    this.isSmallWindow() ?
-                    <HeroImg src={swan} alt="swan" /> : 
-                    <HeroVideo id = "video" autoPlay loop>
-                        <source src="resources/swan.mp4" type="video/mp4" />
-                    </HeroVideo>
-                }
+                <HeroVideo id = "video" playsinline autoPlay muted>
+                    <source src={video} type="video/mp4" />
+                </HeroVideo>
                 <Overlay>
                     <OverlayContent>
-                        <Row>
-                            <Title>Jeremy Fu</Title>
-                        </Row>
-                        <Row>
-                            <Subtitle>
-                                <Typed
-                                    strings={["I am a:^500 developer"]}
-                                    typeSpeed={40}
-                                    showCursor={false}
-                                />
-                            </Subtitle>
-                        </Row>
-                        <Row id="godown">
-                            <DownArrow src="resources/down-arrow.png" alt="Down arrow" />
-                        </Row>
-                        <Row>
-                            <SmallTagline>
-                                <Typed
-                                    strings={["^2000 Welcome! Check out some of my work below :)"]}
-                                    typeSpeed={40}
-                                    showCursor={false}
-                                />
-                            </SmallTagline>
-                        </Row>
+                        {  showTitle ? 
+                            <Row>
+                                <Title isSmallWindow={this.isSmallWindow()}>
+                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
+                                        Jeremy Fu
+                                    </Typist>
+                                </Title>
+                            </Row> 
+                            : null
+                        }
+                        { showSubtitle ? 
+                            <Row>
+                                <Subtitle isSmallWindow={this.isSmallWindow()}>
+                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
+                                        I am a: developer
+                                    </Typist>
+                                </Subtitle>
+                            </Row> : null
+                        }
+                        { showTagline ? 
+                            <Row>
+                                <SmallTagline isSmallWindow={this.isSmallWindow()}>
+                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
+                                        Welcome! Check out some of my work below :)
+                                    </Typist>
+                                </SmallTagline>
+                            </Row> : null
+                        }
+                        { showDownArrow ?
+                            <Row id="godown">
+                                <DownArrow src="resources/down-arrow.png" alt="Down arrow" isSmallWindow={this.isSmallWindow()} />
+                            </Row> : null
+                        }
                     </OverlayContent>
                 </Overlay>
             </HeroWrapper>

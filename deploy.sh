@@ -9,4 +9,4 @@ main() {
     git checkout development
 }
 
-main "$1"
+main "${1:?}"
