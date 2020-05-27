@@ -111,28 +111,30 @@ export class Hero extends Component<Props, State> {
         return !!userAgent.match(/(iPhone|Android)/i) || innerWidth < 700;
     }
 
-    componentDidMount() {
+    setTimeouts = () => {
         setTimeout(() => {
             this.setState({
                 showTitle: true,
             });
-        }, 3300);
+        }, 3100);
         setTimeout(() => {
             this.setState({
                 showSubtitle: true,
             });
-        }, 4300);
+        }, 4100);
         setTimeout(() => {
             this.setState({
                 showTagline: true,
             });
-        }, 6300);
+        }, 6100);
         setTimeout(() => {
             this.setState({
                 showDownArrow: true,
             });
-        }, 10000);
+        }, 9500);
+    }
 
+    componentDidMount() {
         window.addEventListener('resize', this.resize)
     }
 
@@ -149,7 +151,7 @@ export class Hero extends Component<Props, State> {
 
         return (
             <HeroWrapper id="home">
-                <HeroVideo id = "video" playsinline autoPlay muted>
+                <HeroVideo id="video" playsinline autoPlay muted onPlay={() => this.setTimeouts()}>
                     <source src={video} type="video/mp4" />
                 </HeroVideo>
                 <Overlay>
