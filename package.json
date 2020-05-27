@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "deploy-github": "bash ./deploy.sh",
     "deploy-firebase": "react-scripts build && yarn firebase deploy",
-    "deploy": "yarn deploy-github && yarn deploy-firebase"
+    "deploy": "yarn deploy-firebase && yarn deploy-github"
   },
   "eslintConfig": {
     "extends": "react-app"
