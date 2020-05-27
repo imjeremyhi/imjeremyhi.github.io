@@ -16,7 +16,6 @@ const Down: any = styled(animated.img)`
 
 export const DownArrow = ({ isSmallWindow, divToScroll, showDownArrow }: Props) => {
     const [, setY] = useSpring(() => ({ y: 0 }));
-    const opacityProps = useSpring({opacity: 1, from: {opacity: 0}})
 
     const emptyDown = <Down isSmallWindow={isSmallWindow} style={{ opacity: 0 }} />;
     const customDown = <Down 
@@ -33,7 +32,6 @@ export const DownArrow = ({ isSmallWindow, divToScroll, showDownArrow }: Props) 
                 onFrame: props => window.scroll(0, props.y)
             })
         }}
-        style={opacityProps}
     />
 
     return showDownArrow ? customDown : emptyDown;

@@ -113,25 +113,25 @@ export class Hero extends Component<Props, State> {
 
     setTimeouts = () => {
         setTimeout(() => {
+            setTimeout(() => {
+                setTimeout(() => {
+                    setTimeout(() => {
+                        this.setState({
+                            showDownArrow: true,
+                        });
+                    }, 3300);
+                    this.setState({
+                        showTagline: true,
+                    });
+                }, 1700);
+                this.setState({
+                    showSubtitle: true,
+                });
+            }, 1000);
             this.setState({
                 showTitle: true,
             });
         }, 3100);
-        setTimeout(() => {
-            this.setState({
-                showSubtitle: true,
-            });
-        }, 4100);
-        setTimeout(() => {
-            this.setState({
-                showTagline: true,
-            });
-        }, 6100);
-        setTimeout(() => {
-            this.setState({
-                showDownArrow: true,
-            });
-        }, 9500);
     }
 
     componentDidMount() {
