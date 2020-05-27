@@ -7,6 +7,12 @@ import { Section } from './Section';
 import { SubHeading } from './SubHeading';
 import VisibilitySensor from "./VisibilitySensor";
 
+interface Props {
+    divToScroll: any;
+};
+
+interface State {};
+
 const ProjectCategory = styled.div`
     clear: both;
 `;
@@ -101,12 +107,12 @@ const MobileProjects = () => (
     </VisibilitySensor>
 )
 
-export const Projects = () => (
+export const Projects = ({ divToScroll } : Props) => (
     <Section id="project">
-        <>
+        <div ref={divToScroll}>
             <Heading text="Projects" />
             <WebProjects />
             <MobileProjects />
-        </>
+        </div>
     </Section>
 );

@@ -15,13 +15,26 @@ const Main = styled.div`
   background-color: #EDF1F5;
 `;
 
-export class App extends Component {
+interface Props {
+};
+
+interface State {};
+
+export class App extends Component<Props, State> {
+    divToScroll: any;
+
+    constructor(props: Props) {
+        super(props);
+        
+        this.divToScroll = React.createRef();
+    }
+    
     render() {
         return (
             <Main>
             <NavBar />
-            <Hero />
-            <Projects />
+            <Hero divToScroll={this.divToScroll} />
+            <Projects divToScroll={this.divToScroll} />
             <About />
             <Contact />
             <Footer />

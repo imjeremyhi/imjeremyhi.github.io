@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Typed from 'react-typed';
 import Typist from 'react-typist';
+import { DownArrow } from './DownArrow';
 
-const swan = './resources/swan.jpg';
 const video = './resources/personal-website-video.mp4';
 
 const HeroWrapper = styled.div`
@@ -25,10 +24,6 @@ const Overlay = styled.div`
     color: #ffffff;
 `;
 
-const HeroImg = styled.img`
-    max-width: 100%;
-`;
-
 const HeroVideo = styled.video`
     height: auto;
     vertical-align: middle;
@@ -37,12 +32,6 @@ const HeroVideo = styled.video`
 
 const Row = styled.div`
     width: 100%;
-`;
-
-const DownArrow: any = styled.img`
-    border-radius: 50%;
-    height: ${({ isSmallWindow }: any) => isSmallWindow ? '40px' : '80px'};
-    width: ${({ isSmallWindow }: any) => isSmallWindow ? '40px' : '80px'};
 `;
 
 const Title: any = styled.div`
@@ -59,8 +48,16 @@ const SmallTagline: any = styled.div`
     margin-bottom: 10px;
 `;
 
-const OverlayContent = styled.div`
-    height: 70%;
+const OverlayContent: any = styled.div`
+    height: ${({ innerWidth }: any) => {
+        if (innerWidth < 1000) {
+            return '80%';
+        } else if (innerWidth < 1500) {
+            return '50%';
+        } else {
+            return '40%';
+        }
+    }};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +65,9 @@ const OverlayContent = styled.div`
     text-align: center;
 `;
 
-interface Props {};
+interface Props {
+    divToScroll: any;
+};
 
 interface State {
     showTitle: boolean,
@@ -76,6 +75,20 @@ interface State {
     showTagline: boolean,
     showDownArrow: boolean,
 };
+
+const getTypedText = (shouldShow: boolean, text: string, Style: any, { isSmallWindow }: any) => {
+    return (
+        <Row>
+            <Style isSmallWindow={isSmallWindow}>
+                { shouldShow ? 
+                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
+                        {text}
+                    </Typist> : <span style={{ opacity: 0}}>Empty text</span>
+                }
+            </Style>
+        </Row>
+    );
+}
 
 export class Hero extends Component<Props, State> {
     constructor(props: Props) {
@@ -95,7 +108,7 @@ export class Hero extends Component<Props, State> {
         const { userAgent } = navigator;
         const { innerWidth } = window;
 
-        return userAgent.match(/(iPhone|Android)/i) || innerWidth < 650;
+        return !!userAgent.match(/(iPhone|Android)/i) || innerWidth < 700;
     }
 
     componentDidMount() {
@@ -103,22 +116,22 @@ export class Hero extends Component<Props, State> {
             this.setState({
                 showTitle: true,
             });
-        }, 3000);
+        }, 3300);
         setTimeout(() => {
             this.setState({
                 showSubtitle: true,
             });
-        }, 4000);
+        }, 4300);
         setTimeout(() => {
             this.setState({
                 showTagline: true,
             });
-        }, 6000);
+        }, 6300);
         setTimeout(() => {
             this.setState({
                 showDownArrow: true,
             });
-        }, 9800);
+        }, 10000);
 
         window.addEventListener('resize', this.resize)
     }
@@ -128,7 +141,11 @@ export class Hero extends Component<Props, State> {
     }
 
     render() {
+        const { divToScroll } = this.props;
         const { showTitle, showSubtitle, showTagline, showDownArrow } = this.state;
+
+        const { innerWidth } = window;
+        const isSmallWindow = this.isSmallWindow();
 
         return (
             <HeroWrapper id="home">
@@ -136,40 +153,13 @@ export class Hero extends Component<Props, State> {
                     <source src={video} type="video/mp4" />
                 </HeroVideo>
                 <Overlay>
-                    <OverlayContent>
-                        {  showTitle ? 
-                            <Row>
-                                <Title isSmallWindow={this.isSmallWindow()}>
-                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
-                                        Jeremy Fu
-                                    </Typist>
-                                </Title>
-                            </Row> 
-                            : null
-                        }
-                        { showSubtitle ? 
-                            <Row>
-                                <Subtitle isSmallWindow={this.isSmallWindow()}>
-                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
-                                        I am a: developer
-                                    </Typist>
-                                </Subtitle>
-                            </Row> : null
-                        }
-                        { showTagline ? 
-                            <Row>
-                                <SmallTagline isSmallWindow={this.isSmallWindow()}>
-                                    <Typist cursor={{ hideWhenDoneDelay: 0, hideWhenDone: true }}>
-                                        Welcome! Check out some of my work below :)
-                                    </Typist>
-                                </SmallTagline>
-                            </Row> : null
-                        }
-                        { showDownArrow ?
-                            <Row id="godown">
-                                <DownArrow src="resources/down-arrow.png" alt="Down arrow" isSmallWindow={this.isSmallWindow()} />
-                            </Row> : null
-                        }
+                    <OverlayContent innerWidth={innerWidth}>
+                        {getTypedText(showTitle, 'Jeremy Fu', Title, { isSmallWindow })}
+                        {getTypedText(showSubtitle, 'I am a: developer', Subtitle, { isSmallWindow })}
+                        {getTypedText(showTagline, 'Welcome! Check out some of my work below :)', SmallTagline, { isSmallWindow })}
+                        <Row>
+                            <DownArrow isSmallWindow={isSmallWindow} divToScroll={divToScroll} showDownArrow={showDownArrow} />
+                        </Row>
                     </OverlayContent>
                 </Overlay>
             </HeroWrapper>
