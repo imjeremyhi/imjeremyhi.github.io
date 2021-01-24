@@ -7,9 +7,10 @@ export const NavBar = () => (
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
             <Nav>
-                <Nav.Link href="#project">Work</Nav.Link>
-                <Nav.Link href="#about">About</Nav.Link>
-                <Nav.Link href="#contact">Contact</Nav.Link>
+                <Nav.Link href="#projects">Projects</Nav.Link>
+                <Nav.Link href="#languages">Languages</Nav.Link>
+                {/* <Nav.Link href="#about">About</Nav.Link> */}
+                {/* <Nav.Link href="#contact">Contact</Nav.Link> */}
             </Nav>
         </Navbar.Collapse>
     </Navbar>

@@ -81,7 +81,7 @@ const WebProjects = () => (
     <VisibilitySensor once>
         {({ isVisible }: any) => (
             <Spring delay={500} to={{ opacity: isVisible ? 1 : 0 }}>
-                {({ opacity }) => 
+                {({ opacity }) =>
                     <ProjectCategory style={{ opacity }}>
                         <SubHeading text="Websites" />
                         <Slider projects={websiteData} />
@@ -96,7 +96,7 @@ const MobileProjects = () => (
     <VisibilitySensor once>
         {({ isVisible }: any) => (
             <Spring delay={500} to={{ opacity: isVisible ? 1 : 0 }}>
-                {({ opacity }) => 
+                {({ opacity }) =>
                     <ProjectCategory style={{ opacity }}>
                         <SubHeading text="Mobile apps" />
                         <Slider projects={appData} />
@@ -108,7 +108,7 @@ const MobileProjects = () => (
 )
 
 export const Projects = ({ divToScroll } : Props) => (
-    <Section id="project">
+    <Section id="projects">
         <div ref={divToScroll}>
             <Heading text="Projects" />
             <WebProjects />

@@ -9,6 +9,7 @@ import { Projects } from './components/Projects';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Social } from './components/Social';
+import { Languages } from './components/Languages';
 
 const Main = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -25,18 +26,19 @@ export class App extends Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        
+
         this.divToScroll = React.createRef();
     }
-    
+
     render() {
         return (
             <Main>
             <NavBar />
             <Hero divToScroll={this.divToScroll} />
             <Projects divToScroll={this.divToScroll} />
-            <About />
-            <Contact />
+            <Languages />
+            {/* <About /> */}
+            {/* <Contact /> */}
             <Footer />
             <Social />
             </Main>
